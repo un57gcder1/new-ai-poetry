@@ -125,5 +125,5 @@ def generate_rhyme_aaa_poetry(no_lines_total, state_size, char_min, char_max):
         words = random.sample(list(group.keys()), 2)
         lines.append(random.choice(group[words[0]]))
         lines.append(random.choice(group[words[1]]))
-        lines.append(random.choice(group[words[1]]))
+        lines.append(random.choice(group[words[2]]))
     return lines
