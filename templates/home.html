@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container-fluid">
+  <h2>Poetry Generation</h2>
+  <form action="" method="GET">
+	<div class="form-group">
+	  <label for="creativity_input">Creativity</label>
+	  <input class="form-control form-control-sm" name="creativity" id="creativity_input" placeholder="2" type="number" min="1" max="2" required="true" value={{ state_size }} />
+	  <small id="creativityDescription" class="form-text text-muted">A whole number ranging from 1 to 2. Lower means more creativity, higher makes it more cohesive</small> 
+	</div>
+	<!-- Implement later
+	<div class="form-group">
+	  <label for="minchar_input">Minimum characters</label>
+	  <input type="number" class="form-control form-control-sm" name="min_char" id="minchar_input" placeholder="32" required="true" value={{ min_char }} min="0" max="100" required="true" />
+	  <small id="mincharDescription" class="form-text text-muted">A whole number ranging from 0 to 100</small>
+	</div>
+	<div class="form-group">
+	  <label for="maxchar_input">Maximum characters</label>
+	  <input type="number" class="form-control form-control-sm" name="max_char" id="maxchar_input" placeholder="48" required="true" value={{ max_char }} min="40" max="140" required="true" />
+	  <small id="maxcharDescription" class="form-text text-muted">A whole number ranging from 40 to 140</small>
+	</div>
+	-->
+	<div class="form-group">
+	  <label for="lines_input">Lines</label>
+	  <input type="number" class="form-control form-control-sm" name="lines" id="lines_input" placeholder="10" required="true" value={{ lines }} min="4" max="40" required="true" />
+	  <small id="linesDescription" class="form-text text-muted">A whole number ranging from 4 to 40</small>
+	</div>
+	<div class="form-group">
+	  <label for="rhyme-scheme">Select Rhyme Scheme</label>
+	  <select class="form-select" aria-label="Rhyme Scheme" id="rhyme-scheme" name="rhyme_scheme">
+		<option value="ABAB">ABAB ...</option>
+		<option value="AABB">AA BB CC ...</option>
+		<option value="AAA">AAA BBB ...</option>
+		<!-- <option value="ABBA">ABBA ABBA ...</option>
+		<option value="AABBA">AABBA ...</option> <Also implement later> --> 
+		<option value="A">AAAAAA...</option>
+	  </select>
+	  <small id="schemeDescription" class="form-text text-muted">Choose out of the four rhyme schemes listed here.</small>
+	</div>
+	{% csrf_token %}
+	<div class="d-grid gap-3 col-2">
+		<button class="btn btn-success ml-2" type="submit">Generate Poetry</button>
+		{% if error is not None %}
+			<p class="alert alert-danger">{{ error }}</p>
+		{% endif %}
+	</div>
+  </form>
+</div>
+<div class="container">
+  <pre>{{ result }}</pre>
+</div>
+{% endblock content %}
