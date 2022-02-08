@@ -112,7 +112,7 @@ def generate_rhyme_a_poetry(no_lines_total, state_size, char_min, char_max):
     rhyme_groups = [group for group in dictionary_rhyming.values() if len(group) >= 4]
     group = random.choice(rhyme_groups)
     while len(lines) < no_lines_total:
-        words = random.sample(list(group.keys()), 2)
+        words = random.sample(list(group.keys()), 1)
         lines.append(random.choice(group[words[0]]))
     return lines
 
@@ -122,7 +122,7 @@ def generate_rhyme_aaa_poetry(no_lines_total, state_size, char_min, char_max):
     rhyme_groups = [group for group in dictionary_rhyming.values() if len(group) >= 3]
     for i in range(int(no_lines_total/3)): # Make this while to later implement minimum/maximum characters
         group = random.choice(rhyme_groups)
-        words = random.sample(list(group.keys()), 2)
+        words = random.sample(list(group.keys()), 3)
         lines.append(random.choice(group[words[0]]))
         lines.append(random.choice(group[words[1]]))
         lines.append(random.choice(group[words[2]]))
