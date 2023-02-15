@@ -4,7 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-django = "==3.2.11"
+django = "==3.2.18"
 markovify = "*"
 pronouncing = "*"
 gunicorn = "==19.9.0"
