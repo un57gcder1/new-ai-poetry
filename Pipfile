@@ -7,7 +7,7 @@ name = "pypi"
 django = "==3.2.11"
 markovify = "*"
 pronouncing = "*"
-gunicorn = "==19.9.0"
+gunicorn = "==23.0.0"
 
 [dev-packages]
 
